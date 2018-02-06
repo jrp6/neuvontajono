@@ -19,53 +19,53 @@
 
 {{ Tabs.renderTabs() }}
 
-<h3>Jonotustilanne ({{ session.location }})</h3>
+<h3>Queue status in {{ session.location }}</h3>
 
 <input type="hidden" name="courseId" value="{{ course._id.toString() }}">
 <input type="hidden" name="sessionId" value="{{ session._id.toString() }}">
 
 {% if course.projectorConf %}
 <p>
-  <a href="/neuvontajono/sessions/{{ session._id.toString() }}/manage/projector" target="_blank" class="btn btn-success">Avaa videoprojektorinäkymä</a>
+  <a href="/neuvontajono/sessions/{{ session._id.toString() }}/manage/projector" target="_blank" class="btn btn-success">Open projector view</a>
 </p>
 <p>
-  Projektorinäkymässä seuraavaksi vuorossa oleva poistetaan jonosta painamalla välilyöntiä tai
-  napsauttamalla nimeä. Useimmissa selaimissa saa näkymän koko ruutuun painamalla F11-painiketta.
+  When in projector view, remove next in queue by pressing space or clicking the name. You can
+  get the view full screen in most browsers by pressing F11.
 </p>
 <hr>
 {% endif%}
 
-<p id="queue-length">Jonon pituus tällä hetkellä: <span data-bind="text: (users().length)"></span></p>
+<p id="queue-length">Current queue length: <span data-bind="text: (users().length)"></span></p>
 <form id="remove" action="#" method="post">
   <input type="hidden" name="action" value="remove">
   <input type="hidden" name="_csrf" value="{{ csrf_token_value }}">
   <table id="queue" class="table">
     <thead>
       <tr>
-        <th>Sija</th>
-        <th>Nimi</th>
-        <th>Jonoon</th>
-        <th>Sijainti</th>
+        <th>Spot</th>
+        <th>Name</th>
+        <th>Enqueue time</th>
+        <th>Location</th>
         <th>&nbsp;</th>
       </tr>
     </thead>
     <tbody data-bind="foreach: users">
       <tr>
-        <td data-bind="text: ($index() + 1 + '.')"></td>
+        <td data-bind="text: ($index() + 1 + 'th')"></td>
         <td data-bind="text: (user.name.first() + ' ' + user.name.last())"></td>
         <td data-bind="text: enteredAt"></td>
-        <td data-bind="text: (location() + ', rivi ' + row())"></td>
-        <td><button class="btn btn-primary btn-xs remove" name="queueId" data-bind="value: _id">Poista jonosta</button></td>
+        <td data-bind="text: (location() + ', row ' + row())"></td>
+        <td><button class="btn btn-primary btn-xs remove" name="queueId" data-bind="value: _id">Dequeue</button></td>
       </tr>
     </tbody>
   </table>
 </form>
 
-<p data-bind="visible: (users().length == 0)">Jono on tyhjä.</p>
+<p data-bind="visible: (users().length == 0)">The queue is empty.</p>
 
 <form style="display: none;" data-bind="visible: (users().length > 0)" action="#" method="post">
   <input type="hidden" name="_csrf" value="{{ csrf_token_value }}">
-  <button id="clear-queue" type="submit" class="btn btn-danger" name="action" value="clear">Tyhjennä jono</button>
+  <button id="clear-queue" type="submit" class="btn btn-danger" name="action" value="clear">Empty the queue</button>
 </form>
 
 {% endblock %}

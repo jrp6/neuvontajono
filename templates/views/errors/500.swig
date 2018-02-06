@@ -5,10 +5,10 @@
 		<h1>{{ statusCode }}</h1>
     
         {% if statusCode == 403 %}
-        <p class="lead">Pääsy kielletty</p>
-        <p>Mikäli virhe vaikuttaa aiheettomalta, yritä päivittää sivu ja kokeile uudelleen.</p>
+        <p class="lead">Forbidden</p>
+        <p>If this error seems unfounded, try updating the page.</p>
         {% else %}
-        <p class="lead">Palvelimella tapahtui odottamaton virhetilanne.</p>
+        <p class="lead">An unexpected internal server error occured.</p>
         {% endif %}		
     
         {% if error %}
@@ -18,7 +18,7 @@
         {% endif %}
         {% endif %}
     
-        <p>Palaa <a href="/neuvontajono">etusivulle</a>.</p>
+        <p>Go back <a href="/neuvontajono">to the front page</a>.</p>
         
 	</div>
 {% endblock %}

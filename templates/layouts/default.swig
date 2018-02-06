@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="{{ csrf_token_value }}" name="_csrf" />
-<title>{{ title|default("Neuvontajono") }}</title>
+<title>{{ title|default("Assistance Queue") }}</title>
 <link href="/neuvontajono/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 <link href="/neuvontajono/styles/style.css" rel="stylesheet">
@@ -28,7 +28,7 @@
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand">Neuvontajono</a>
+        <a class="navbar-brand">Assistance Queue</a>
       </div>
       <p class="navbar-text navbar-right">{% if user %}{{ user.name.full }}{% endif %}</p>
     </div>

@@ -11,14 +11,14 @@
 
 {% if sessions.length > 0 %}
 
-  <p>Valitse harjoitusryhmä. Alla olevassa taulukossa on kaikki tänään pidettävät harjoitusryhmät.</p>
+  <p>Select exercise group. The table below contains all exercise groups today.</p>
 
   <table class="table">
     <tr>
-      <th>Nimi</th>
-      <th>Kello</th>
-      <th>Sijainti</th>
-      <th>Henkilökunta</th>
+      <th>Name</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>Staff</th>
       <th>&nbsp;</th>
     </tr>
     {% for session in sessions %}
@@ -27,14 +27,14 @@
       <td>{{ session.timespan }}</td>
       <td>{{ session.location }}</td>
       <td>{{ session.assistants }}</td>
-      <td><a href="/neuvontajono/sessions/{{session.id}}/manage" class="btn btn-primary">Valitse</a></td>
+      <td><a href="/neuvontajono/sessions/{{session.id}}/manage" class="btn btn-primary">Select</a></td>
     </tr>
     {% endfor %}
   </table>
 
 {% else %}
 
-    <p>Ei harjoitusryhmiä tänään.</p>
+    <p>No exercise groups today.</p>
 
 {% endif %}
 

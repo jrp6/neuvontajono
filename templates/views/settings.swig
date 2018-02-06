@@ -12,7 +12,7 @@
 
 
     $('button.delete-session').click(function(event) {
-      if (!confirm('Haluatko varmasti poistaa tämän harjoitusryhmän kokonaan?')) {
+      if (!confirm('Are you sure you wish to remove this exercise group?')) {
         event.preventDefault();
       }
     });
@@ -28,18 +28,18 @@
 
 <form class="form-horizontal" method="post" action="#">
 
-  <h3>Yleiset asetukset</h3>
+  <h3>General settings</h3>
 
   <input type="hidden" name="_csrf" value="{{ csrf_token_value }}">
   <div class="form-group">
-    <label for="courseName" class="col-sm-2 control-label">Kurssin nimi:</label>
+    <label for="courseName" class="col-sm-2 control-label">Course name:</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" name="name" id="courseName" value="{{ formData.name }}">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="courseId" class="col-sm-2 control-label">Kurssin tunniste:</label>
+    <label for="courseId" class="col-sm-2 control-label">Course ID:</label>
     <div class="col-sm-6">
       <p id="courseId" class="form-control-static">{{ formData.courseId }}</p>
     </div>
@@ -49,53 +49,53 @@
     <label for="courseURL" class="col-sm-2 control-label">URL:</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" name="url" id="courseURL" value="{{ formData.url }}">
-      <p class="help-block small">Kirjoita tähän osoite, jossa on lisätietoja harjoitusryhmistä. Kentän voi jättää tyhjäksi.</p>
+      <p class="help-block small">Enter an URL with more information about the exercise groups. This field can be left blank.</p>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="combined" class="col-sm-2 control-label">Yhdistä toiseen:</label>
+    <label for="combined" class="col-sm-2 control-label">Combine with course:</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" name="combined" id="combined" value="{{ formData.combined }}">
       <p class="help-block small">
-        Jos haluat yhdistää useamman kurssin harjoitusjonon, kirjoita tähän sen kurssin tunniste, johon tämä
-        kurssi liitetään. Tällöin kaikki muut paitsi kurssin opettaja ohjataan annetulle kurssille, kun neuvontajono
-        avataan, eikä tämän kurssin neuvontajono ole käytössä.
+        If you wish to combine the queues of several courses, enter the ID of the course with which this course
+        will be combined with. In this case, everyone except the course teacher will be redirected to the other course
+        when the queue is opened, and the queue of this course will be disabled.
       </p>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="projectorConf" class="col-sm-2 control-label">Video&shy;projektori&shy;näkymä:</label>
+    <label for="projectorConf" class="col-sm-2 control-label">Projector view:</label>
     <div class="col-sm-6">
       <input type="text" class="form-control" name="projectorConf" id="projectorConf" value="{{ formData.projectorConf }}">
-      <p class="help-block small">Jos videoprojektorinäkymä on käytössä, kirjoita tähän asetustiedoston URL.</p>
+      <p class="help-block small">If the projector view is used, enter the URL of the configuration file here.</p>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="statisticsLevel" class="col-sm-2 control-label">Tilastojen näkyvyys:</label>
+    <label for="statisticsLevel" class="col-sm-2 control-label">Statistics visibility:</label>
     <div class="col-sm-6">
       <select name="statisticsLevel" data-bind="value: statisticsLevel">
-      <option value="0">Näytä kaikille</option>
-      <option value="1">Näytä vain henkilökunnalle</option>
-      <option value="2">Näytä vain opettajalle</option>
+      <option value="0">Visible to all</option>
+      <option value="1">Visible to staff only</option>
+      <option value="2">Visible to teacher only</option>
       </select>
     </div>
   </div>
 
   <div class="form-group">
-    <label for="yellowLimit" class="col-sm-2 control-label">Tilastojen värirajat:</label>
+    <label for="yellowLimit" class="col-sm-2 control-label">Statistics colour limit:</label>
     <div class="col-sm-6">
       <input type="text" class="statistics-level-input form-control" name="yellowLimit" id="yellowLimit" value="{{ formData.yellowLimit }}">
       <input type="text" class="statistics-level-input form-control" name="redLimit" id="redLimit" value="{{ formData.redLimit }}">
-      <p class="help-block small">Kirjoita ensimmäiseen kenttään keltaisen ja toiseen punaisen raja.</p>
+      <p class="help-block small">Enter the yellow limit in the first field and the red limit in the second.</p>
     </div>
   </div>
 
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" name="action" value="saveSettings" class="btn btn-primary">Tallenna</button>
+      <button type="submit" name="action" value="saveSettings" class="btn btn-primary">Save</button>
     </div>
   </div>
 
@@ -103,17 +103,17 @@
 
 <hr>
 
-<h3>Harjoitusryhmät</h3>
+<h3>Exercise groups</h3>
 <form action="#" method="post">
   <input type="hidden" name="action" value="remove">
   <input type="hidden" name="_csrf" value="{{ csrf_token_value }}">
   <table class="table">
     <tr>
-      <th>Nimi</th>
-      <th>Ajanjakso</th>
-      <th>Kello</th>
-      <th>Sijainti</th>
-      <th>Henkilökunta</th>
+      <th>Name</th>
+      <th>Duration</th>
+      <th>Time</th>
+      <th>Location</th>
+      <th>Staff</th>
       <th>&nbsp;</th>
     </tr>
     {% for session in sessions %}
@@ -127,7 +127,7 @@
       <td>{{ session.timespan }}</td>
       <td>{{ session.location }}</td>
       <td>{{ session.assistants }}</td>
-      <td><a href="/neuvontajono/sessions/{{session.id}}/edit" class="btn btn-xs btn-primary">Muokkaa</a> <button name="sessionId" value="{{session.id}}" class="btn btn-xs btn-danger delete-session">Poista</button></td>
+      <td><a href="/neuvontajono/sessions/{{session.id}}/edit" class="btn btn-xs btn-primary">Modify</a> <button name="sessionId" value="{{session.id}}" class="btn btn-xs btn-danger delete-session">Remove</button></td>
     </tr>
     {% endfor %}
   </table>
@@ -136,15 +136,15 @@
 <form action="#" method="post">
   <input type="hidden" name="_csrf" value="{{ csrf_token_value }}">
   <p>
-    <a href="/neuvontajono/sessions/create" class="btn btn-success">Luo uusi</a>
+    <a href="/neuvontajono/sessions/create" class="btn btn-success">Create a new exercise group</a>
   </p>
   <p style="margin-top: 25px;">
-    Kaikki harjoitusryhmät voi ottaa tilapäisesti pois käytöstä esimerkiksi tenttiviikon ajaksi
-    alla olevalla painikkeella. Ryhmät voi ottaa käyttöön uudelleen milloin hyvänsä.
+    All exercise groups can be temporarily deactivated e.g. for the duration of an exam week
+    using the button below. The groups can be reactivated at any time.
   </p>
   <p>
-    <button name="action" value="disableAll" class="btn btn-primary">Poista kaikki käytöstä</button>
-    <button name="action" value="enableAll" class="btn btn-primary">Ota kaikki käyttöön</button>
+    <button name="action" value="disableAll" class="btn btn-primary">Deactivate all</button>
+    <button name="action" value="enableAll" class="btn btn-primary">Activate all</button>
   </p>
 </form>
 

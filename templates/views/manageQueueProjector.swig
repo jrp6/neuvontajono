@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="{{ csrf_token_value }}" name="_csrf" />
-    <title>{{ title|default("Neuvontajono") }}</title>
+    <title>{{ title|default("Assistance Queue") }}</title>
     <script src="/neuvontajono/scripts/jquery-1.11.2.min.js"></script>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src="/neuvontajono/scripts/moment.min.js"></script>
@@ -36,10 +36,10 @@
 
     <div id="header">
     <div id="time">&nbsp;</div>
-    <div id="queue">Jonossa: <span id="length">&nbsp;</span></div>
-    <div id="next">Seuraavana vuorossa:
+    <div id="queue">In queue: <span id="length">&nbsp;</span></div>
+    <div id="next">Next in queue:
       <span id="name">&nbsp;</span>
-      (rivi <span id="row">&nbsp;</span>)</div>
+      (row <span id="row">&nbsp;</span>)</div>
     </div>
 
     <div id="content">

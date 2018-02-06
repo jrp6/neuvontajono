@@ -10,19 +10,18 @@
 {{ Tabs.renderTabs() }}
 
 
-<p>Alla olevassa taulukossa on kaikki kurssin tällä viikolla pidettävät harjoitusryhmät.
-Vihreällä merkityt harjoitusryhmät ovat tänään.
+<p>The table below contains all exercise groups this week. Groups marked in green are today.
 {%if course.url %}
-Tarkempia tietoja harjoitusryhmistä löytyy <a href="{{course.url}}">täältä</a>.
+For more details see <a href="{{course.url}}">here</a>.
 {% endif %}
 </p>
 
 <table class="table">
   <tr>
-    <th>Nimi</th>
-    <th>Kello</th>
-    <th>Sijainti</th>
-    <th>Henkilökunta</th>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Location</th>
+    <th>Staff</th>
   </tr>
   {% for session in sessions %}
   <tr {% if session.weekday == today %}class="success" {% endif %}>
@@ -35,7 +34,7 @@ Tarkempia tietoja harjoitusryhmistä löytyy <a href="{{course.url}}">täältä<
 </table>
 
 {% if teacher %}
-<p>Harjoitusryhmiä voi muokata <a href="/neuvontajono/settings">kurssin asetuksista</a>.</p>
+<p>Exercise groups can be modified in the <a href="/neuvontajono/settings">course settings</a>.</p>
 {% endif %}
 
 {% endblock %}

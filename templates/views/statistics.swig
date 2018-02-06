@@ -14,9 +14,9 @@
 
 {{ Tabs.renderTabs() }}
 
-<p>Alla on esitetty tilastotietoja, kuinka monta opiskelijaa on ollut kussakin ryhmässä eri viikkoina.
-Tiedot kerätään automaattisesti neuvontajonon perusteella, joten tiedot eivät ole välttämättä aivan täsmällisiä,
-mutta niiden perusteella voit katsoa, mitkä ryhmät ovat yleensä ruuhkaisia ja mitkä väljempiä.
+<p>Below are statistics on how many students have attended each group during different weeks.
+The statistics are gathered automatically using the advice queue and therefore might not be precise,
+but you may use them to see which groups are usually busy and which are not.
 </p>
 
 <table class="statistics-table">
@@ -35,29 +35,29 @@ mutta niiden perusteella voit katsoa, mitkä ryhmät ovat yleensä ruuhkaisia ja
 
 <hr>
 
-<h3>Aktiivisimmat opiskelijat</h3>
+<h3>Most active students</h3>
 
 <div class="alert alert-info">
-  Tämä tilasto näkyy aina vain kurssin opettajille.
+   This statistic is only visible to teachers.
 </div>
 
 <p>
-  Taulukossa näkyy, kuinka monta kertaa kukin opiskelija on käynyt
-  kurssin aikana eri harjoitusryhmissä.
+  The table shows how many different exercise groups the student
+  has attended during the course.
 </p>
 
 <table class="table table-condensed">
   <thead>
     <tr>
-      <th>Sija</th>
-      <th>Opiskelija</th>
-      <th>Käyntejä</th>
+      <th>Ranking</th>
+      <th>Student</th>
+      <th>Visits</th>
     </tr>
   </thead>
   <tbody>
     {% for participant in mostFrequent %}
     <tr>
-      <td>{{ participant[0] }}.</td>
+      <td>{{ participant[0] }}th</td>
       <td>{{ participant[1] }}</td>
       <td>{{ participant[2] }}</td>
     </tr>
