@@ -1,4 +1,3 @@
-require('dotenv').load();
 var keystone = require('keystone'), swig = require('swig'), moment = require('moment');
 
 // Disable swig's bulit-in template caching, express handles it
