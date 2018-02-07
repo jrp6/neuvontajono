@@ -3,7 +3,7 @@ $(function() {
   var updateLayout = function() {
     $('table#queue tr').eq(1).addClass('first-in-queue');
     $('table#queue tr').eq(1).find('button').removeClass('btn-xs');
-    document.title = 'Neuvontajono (' + koViewModel.users().length + ')';
+    document.title = 'Assistance Queue (' + koViewModel.users().length + ')';
   };
 
   // **********************************************************************************************
@@ -24,7 +24,7 @@ $(function() {
     if (data.error) {
       $('div#alerts div.alert').remove();
       $('div#content div#alerts').prepend(
-          $('<div class="alert alert-danger">Päivittäminen epäonnistui. Yritä päivittää sivu.</div>'));
+        $('<div class="alert alert-danger">Updating failed. Try to refresh the page.</div>'));
     } else {
       ko.mapping.fromJS(data, koViewModel);
       updateLayout();
@@ -42,7 +42,7 @@ $(function() {
           if (data.error) {
             $('div#alerts div.alert').remove();
             $('div#content div#alerts').prepend(
-                $('<div class="alert alert-danger">Päivittäminen epäonnistui. Yritä päivittää sivu.</div>'));
+              $('<div class="alert alert-danger">Updating failed. Try to refresh the page.</div>'));
           } else {
             ko.mapping.fromJS(data, koViewModel);
             updateLayout();
@@ -51,7 +51,7 @@ $(function() {
         function() {
           $('div#alerts div.alert').remove();
           $('div#content div#alerts').prepend(
-              $('<div class="alert alert-danger">Päivittäminen epäonnistui. Yritä päivittää sivu.</div>'));
+            $('<div class="alert alert-danger">Updating failed. Try to refresh the page.</div>'));
         });
   }, 60000);
 
@@ -60,7 +60,7 @@ $(function() {
   $(document.body).on('click', 'form#remove button.remove', function(e) {
     e.preventDefault();
 
-    if ($(this).hasClass('btn-xs') && !confirm('Haluatko varmasti poistaa opiskelijan keskeltä jonoa?')) {
+    if ($(this).hasClass('btn-xs') && !confirm('Are you sure you want to remove a student from the middle of the queue?')) {
       return;
     }
 
@@ -73,14 +73,14 @@ $(function() {
     $.post(formURL, postData, function(data) {
       if (data.error) {
         $('div#alerts div.alert').remove();
-        $('div#content div#alerts').prepend($('<div class="alert alert-danger">Poistaminen epäonnistui.</div>'));
+        $('div#content div#alerts').prepend($('<div class="alert alert-danger">Removal failed.</div>'));
       } else {
         ko.mapping.fromJS(data, koViewModel);
         updateLayout();
       }
     }).fail(function() {
       $('div#alerts div.alert').remove();
-      $('div#content div#alerts').prepend($('<div class="alert alert-danger">Poistaminen epäonnistui.</div>'));
+      $('div#content div#alerts').prepend($('<div class="alert alert-danger">Removal failed.</div>'));
     });
 
   });
@@ -88,7 +88,7 @@ $(function() {
   // **********************************************************************************************
 
   $('button#clear-queue').click(function(event) {
-    if (!confirm('Haluatko varmasti tyhjentää jonon?')) {
+    if (!confirm('Are you sure you want to empty the queue?')) {
       event.preventDefault();
     }
   });

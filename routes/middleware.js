@@ -50,7 +50,7 @@ exports.flashMessages = function(req, res, next) {
 exports.requireUser = function(req, res, next) {
   if (!req.user) {
     if (!req.xhr) {
-      req.flash('error', 'Et ole kirjautunut sisään.');
+      req.flash('error', 'You are not logged in.');
       res.redirect('/neuvontajono');
     } else {
       res.json({error: true});
@@ -65,7 +65,7 @@ exports.requireUser = function(req, res, next) {
 exports.requireCourse = function(req, res, next) {
   if (!req.user || !res.locals.course) {
     if (!req.xhr) {
-      req.flash('error', 'Et ole kirjautunut kurssille.');
+      req.flash('error', 'You are not logged in to a course.');
       res.redirect('/neuvontajono');
     } else {
       res.json({error: true});
@@ -80,7 +80,7 @@ exports.requireCourse = function(req, res, next) {
 exports.requireStaff = function(req, res, next) {
   if (!req.user || !res.locals.course || !res.locals.staff) {
     if (!req.xhr) {
-      req.flash('error', 'Et ole henkilökuntaa.');
+      req.flash('error', 'You are not staff.');
       res.redirect('/neuvontajono');
     } else {
       res.json({error: true});
@@ -95,7 +95,7 @@ exports.requireStaff = function(req, res, next) {
 exports.requireTeacher = function(req, res, next) {
   if (!req.user || !res.locals.course || !res.locals.teacher) {
     if (!req.xhr) {
-      req.flash('error', 'Et ole opettaja.');
+      req.flash('error', 'You are not the teacher.');
       res.redirect('/neuvontajono');
     } else {
       res.json({error: true});

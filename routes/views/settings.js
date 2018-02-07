@@ -65,10 +65,10 @@ exports = module.exports = function(req, res) {
           if (!err) {
 
             locals.course = course;
-            req.flash('success', 'Kurssin asetukset on tallennettu.');
+            req.flash('success', 'Course settings saved.');
 
           } else {
-            req.flash('error', 'Kurssin asetusten tallentaminen ei onnistunut.');
+            req.flash('error', 'Failed to save course settings.');
           }
 
           next();
@@ -76,7 +76,7 @@ exports = module.exports = function(req, res) {
         });
 
       } else {
-        req.flash('error', 'Kurssin asetusten tallentaminen ei onnistunut.');
+        req.flash('error', 'Failed to save course settings.');
         next();
       }
 
@@ -89,9 +89,9 @@ exports = module.exports = function(req, res) {
   view.on('post', {'action': 'remove'}, function(next) {
     Session.model.findOneAndRemove({course: locals.course._id, _id: req.body.sessionId}, function(err, session) {
       if (session) {
-        req.flash('success', 'Harjoitusryhmä on poistettu.');
+        req.flash('success', 'Exercise group removed.');
       } else {
-        req.flash('error', 'Harjoitusryhmän poistaminen ei onnistunut.');
+        req.flash('error', 'Failed to remove exercise group.');
       }
       next();
     });
@@ -102,9 +102,9 @@ exports = module.exports = function(req, res) {
   view.on('post', {'action': 'disableAll'}, function(next) {
     Session.model.update({course: locals.course}, {active: false}, {multi: true}, function(err, result) {
       if (!err) {
-        req.flash('success', 'Harjoitusryhmät on poistettu käytöstä.');
+        req.flash('success', 'Exercise groups deactivated.');
       } else {
-        req.flash('error', 'Harjoitusryhmien poistaminen käytöstä ei onnistunut.');
+        req.flash('error', 'Failed to deactivate exercise groups.');
       }
       next();
     });
@@ -115,9 +115,9 @@ exports = module.exports = function(req, res) {
   view.on('post', {'action': 'enableAll'}, function(next) {
     Session.model.update({course: locals.course}, {active: true}, {multi: true}, function(err, session) {
       if (!err) {
-        req.flash('success', 'Harjoitusryhmät on otettu käyttöön.');
+        req.flash('success', 'Exercise groups activated.');
       } else {
-        req.flash('error', 'Harjoitusryhmien ottaminen käyttöön ei onnistunut.');
+        req.flash('error', 'Failed to activate exercise groups.');
       }
       next();
     });

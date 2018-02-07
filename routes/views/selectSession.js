@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
     }
 
     if (err) {
-      req.flash('error', 'Harjoitusryhmien hakeminen epäonnistui.');
+      req.flash('error', 'Failed to get exercise groups.');
     }
 
     view.render('selectSession', locals);

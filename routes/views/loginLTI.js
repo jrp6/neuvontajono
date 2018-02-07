@@ -17,7 +17,7 @@ exports = module.exports = function(req, res) {
   };
 
   var loginFailed = function() {
-    req.flash('error', 'LTI-kirjautuminen epäonnistui.');
+    req.flash('error', 'LTI-login failed.');
     res.redirect('/neuvontajono');
   };
 
@@ -35,7 +35,7 @@ exports = module.exports = function(req, res) {
             if (!err && course) {
 
               if (created) {
-                req.flash('success', 'Luotiin uusi kurssi. Tarkista kurssin asetukset ja määrittele harjoitusryhmät.');
+                req.flash('success', 'Created a new course. Check course settings and define exercise groups..');
               }
 
               req.session.courseId = course._id;
@@ -67,7 +67,7 @@ exports = module.exports = function(req, res) {
 
             Course.model.findOne({'courseId': course.combined}, function(err, course) {
               if (err || !course) {
-                req.flash('error', 'Neuvontajono ei ole käytössä tällä kurssilla.');
+                req.flash('error', 'This course is not using advice queue.');
                 res.redirect('/neuvontajono');
               } else {
                 req.session.courseId = course._id;
@@ -80,7 +80,7 @@ exports = module.exports = function(req, res) {
 
         } else if (!err && !course) {
 
-          req.flash('error', 'Neuvontajono ei ole käytössä tällä kurssilla.');
+          req.flash('error', 'This course is not using advice queue.');
           res.redirect('/neuvontajono');
 
         } else {

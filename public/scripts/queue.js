@@ -50,7 +50,7 @@ $(function() {
     if (data.error) {
       $('div#alerts div.alert').remove();
       $('div#content div#alerts').prepend(
-        $('<div class="alert alert-danger">Päivittäminen epäonnistui. Yritä päivittää sivu.</div>'));
+        $('<div class="alert alert-danger">Update failed. Try to refresh the queue.</div>'));
     } else {
       update(data);
     }
@@ -65,14 +65,14 @@ $(function() {
       if (data.error) {
         $('div#alerts div.alert').remove();
         $('div#content div#alerts').prepend(
-          $('<div class="alert alert-danger">Päivittäminen epäonnistui. Yritä päivittää sivu.</div>'));
+          $('<div class="alert alert-danger">Update failed. Try to refresh the queue.</div>'));
       } else {
         update(data);
       }
     }).fail(function() {
       $('div#alerts div.alert').remove();
       $('div#content div#alerts').prepend(
-        $('<div class="alert alert-danger">Päivittäminen epäonnistui. Yritä päivittää sivu.</div>'));
+        $('<div class="alert alert-danger">Update failed. Try to refresh the queue.</div>'));
     });
   }, 60000);
 
@@ -90,13 +90,13 @@ $(function() {
     $.post(formURL, postData, function(data) {
       if (data.error) {
         $('div#alerts div.alert').remove();
-        $('div#content div#alerts').prepend($('<div class="alert alert-danger">Jonoon lisääminen epäonnistui.</div>'));
+        $('div#content div#alerts').prepend($('<div class="alert alert-danger">Failed to enqueue.</div>'));
       } else {
         update(data);
       }
     }).fail(function() {
       $('div#alerts div.alert').remove();
-      $('div#content div#alerts').prepend($('<div class="alert alert-danger">Jonoon lisääminen epäonnistui.</div>'));
+      $('div#content div#alerts').prepend($('<div class="alert alert-danger">Failed to enqueue.</div>'));
     });
 
   });
@@ -107,7 +107,7 @@ $(function() {
 
     e.preventDefault();
 
-    if (!confirm('Haluatko varmasti poistaa itsesi jonosta?')) {
+    if (!confirm('Are you sure you wish to dequeue?')) {
       return;
     }
 
@@ -121,15 +121,15 @@ $(function() {
       if (data.error) {
         $('div#alerts div.alert').remove();
         $('div#content div#alerts').prepend(
-          $('<div class="alert alert-danger">Jonosta poistuminen epäonnistui.</div>'));
+          $('<div class="alert alert-danger">Failed to dequeue.</div>'));
       } else {
-        $('div#content div#alerts').prepend($('<div class="alert alert-success">Et ole enää jonossa.</div>'));
+        $('div#content div#alerts').prepend($('<div class="alert alert-success">You are no longer in the queue.</div>'));
         update(data);
       }
     }).fail(function() {
       $('div#alerts div.alert').remove();
       $('div#content div#alerts').prepend(
-        $('<div class="alert alert-danger">Jonosta poistuminen epäonnistui.</div>'));
+        $('<div class="alert alert-danger">Failed to dequeue.</div>'));
     });
 
   });

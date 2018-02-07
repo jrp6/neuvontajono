@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
           next();
 
         } else {
-          req.flash('error', 'Tuntematon harjoitusryhmä.');
+          req.flash('error', 'Unknown exercise group.');
           res.redirect('/neuvontajono/settings');
         }
       });
@@ -67,12 +67,11 @@ exports = module.exports = function(req, res) {
 
       session.save(function(err) {
         if (!err) {
-
-          req.flash('success', 'Harjoitusryhmän tiedot on tallennettu.');
+          req.flash('success', 'Excercise group saved.');
           res.redirect('/neuvontajono/settings');
 
         } else {
-          req.flash('error', 'Harjoitusryhmän tallentaminen ei onnistunut.');
+          req.flash('error', 'Failed to save exercise group.');
           next();
         }
 
@@ -88,7 +87,7 @@ exports = module.exports = function(req, res) {
 
         } else {
 
-          req.flash('error', 'Harjoitusryhmän tallentaminen ei onnistunut.');
+          req.flash('error', 'Failed to save exercise group.');
           next();
 
         }

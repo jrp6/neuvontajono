@@ -63,7 +63,7 @@ Session.schema.virtual('endTimeString').set(function(time) {
 // ************************************************************************************************
 
 Session.schema.virtual('weekdayString').get(function() {
-  var weekdays = ['su', 'ma', 'ti', 'ke', 'to', 'pe', 'la'];
+  var weekdays = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
   return weekdays[this.weekday];
 });
 

@@ -13,7 +13,7 @@ exports = module.exports = function(req, res) {
   view.on('init', function(next) {
 
     if ((locals.course.statisticsLevel == 2 && !locals.teacher) || (locals.course.statisticsLevel == 1 && !locals.staff)) {
-      req.flash('error', 'Sinulla ei ole oikeutta nähdä tilastoja.');
+      req.flash('error', 'You are not permitted to view statistics.');
       res.redirect('/neuvontajono/queue');
     } else {
       next();
@@ -137,7 +137,7 @@ exports = module.exports = function(req, res) {
             });
 
           } else {
-            req.flash('error', 'Tilastojen lataaminen epäonnistui.');
+            req.flash('error', 'Failed to load statistics.');
           }
 
           Participant.model.getMostFrequentUsers(locals.course, function(err, result) {
@@ -149,7 +149,7 @@ exports = module.exports = function(req, res) {
 
       } else {
 
-        req.flash('error', 'Tilastojen lataaminen epäonnistui.');
+        req.flash('error', 'Failed to load statistics.');
 
       }
 

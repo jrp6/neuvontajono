@@ -17,7 +17,7 @@ $(function() {
 
   var updateLayout = function() {
 
-    document.title = 'Neuvontajono (' + koViewModel.users().length + ')';
+    document.title = 'Assistance queue (' + koViewModel.users().length + ')';
 
     $('#length').text(koViewModel.users().length);
 
@@ -69,7 +69,7 @@ $(function() {
 
   socket.on('staffQueue', function(data) {
     if (data.error) {
-      alert('Sivun päivittäminen epäonnistui! Yritä ladata sivu uudelleen.');
+      alert('Update failed. Try to refresh the page.');
     } else {
       ko.mapping.fromJS(data, koViewModel);
       updateLayout();
@@ -83,7 +83,7 @@ $(function() {
     var timestamp = (new Date().getTime() / 1000).toFixed(0);
     $.getJSON("?timestamp=" + timestamp, function(data) {
       if (data.error) {
-        alert('Sivun päivittäminen epäonnistui! Yritä ladata sivu uudelleen.');
+        alert('Update failed. Try to refresh the page.');
       } else {
 
         if (data.open !== undefined) {
@@ -97,7 +97,7 @@ $(function() {
         updateLayout();
       }
     }).fail(function() {
-      alert('Sivun päivittäminen epäonnistui! Yritä ladata sivu uudelleen.');
+      alert('Update failed. Try to refresh the page.');
     });
   }, 20000);
 
@@ -114,13 +114,13 @@ $(function() {
 
     $.post('#', postData, function(data) {
       if (data.error) {
-        alert('Sivun päivittäminen epäonnistui! Yritä ladata sivu uudelleen.');
+        alert('Update failed. Try to refresh the page.');
       } else {
         ko.mapping.fromJS(data, koViewModel);
         updateLayout();
       }
     }).fail(function() {
-      alert('Sivun päivittäminen epäonnistui! Yritä ladata sivu uudelleen.');
+      alert('Update failed. Try to refresh the page.');
     });
 
   };
@@ -143,7 +143,7 @@ $(function() {
     var closed = '';
 
     if (!isOpen) {
-      closed = 'Jono on suljettu - ';
+      closed = 'The queue is closed - ';
     }
 
     if (m < 10) m = "0" + m;
@@ -216,7 +216,7 @@ $(function() {
     refresh();
 
   }).fail(function() {
-    alert('Näkymän asetusten lataaminen epäonnistui! Yritä ladata sivu uudelleen.');
+    alert('Failed to load settings. Try to refresh the page.');
   });
 
 

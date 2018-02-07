@@ -31,7 +31,7 @@ exports = module.exports = function(req, res) {
                   function(err, queue) {
 
                     if (err && !req.xhr) {
-                      req.flash('error', 'Jonoon lisääminen ei onnistunut.');
+                      req.flash('error', 'Failed to enqueue.');
                       next();
                     } else if (err && req.xhr) {
                       res.json({error: true});
@@ -44,7 +44,7 @@ exports = module.exports = function(req, res) {
             } else {
 
               if (err && !req.xhr) {
-                req.flash('error', 'Jonoon lisääminen ei onnistunut.');
+                req.flash('error', 'Failed to enqueue.');
                 next();
               } else if (err && req.xhr) {
                 res.json({error: true});
@@ -56,7 +56,7 @@ exports = module.exports = function(req, res) {
 
           } else {
             if (err && !req.xhr) {
-              req.flash('error', 'Jonoon lisääminen ei onnistunut.');
+              req.flash('error', 'Failed to enqueue.');
               next();
             } else if (err && req.xhr) {
               res.json({error: true});
@@ -77,9 +77,9 @@ exports = module.exports = function(req, res) {
     Queue.model.removeUser(locals.course, locals.user, function(err) {
 
       if (err) {
-        req.flash('error', 'Jonosta poistaminen ei onnistunut.');
+        req.flash('error', 'Failed to dequeue.');
       } else {
-        req.flash('success', 'Et ole enää jonossa.');
+        req.flash('success', 'You are no longer in the queue.');
       }
 
       next();
@@ -109,7 +109,7 @@ exports = module.exports = function(req, res) {
         }
       } else {
         if (errors) {
-          req.flash('error', 'Jonotustietojen hakeminen epäonnistui.');
+          req.flash('error', 'Failed to load queue data.');
         } else {
           locals.queueData = JSON.stringify(locals.queueData);
         }

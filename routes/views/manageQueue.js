@@ -59,7 +59,7 @@ exports = module.exports = function(req, res) {
         next();
 
       } else {
-        req.flash('error', 'Harjoitusryhmää ei löydy.');
+          req.flash('error', 'Exercise group not found.');
         res.redirect('/neuvontajono/selectSession');
       }
 
@@ -76,7 +76,7 @@ exports = module.exports = function(req, res) {
       if (!req.xhr) {
 
         if (errors) {
-          req.flash('error', 'Jonottajien hakeminen epäonnistui.');
+          req.flash('error', 'Failed to get users in queue.');
         }
 
         locals.queueData = JSON.stringify(locals.queueData);
@@ -103,7 +103,7 @@ exports = module.exports = function(req, res) {
     Queue.model.clearQueue(locals.course, locals.session, function(err, result) {
 
       if (err) {
-        req.flash('error', 'Jonon tyhjentäminen epäonnistui.');
+        req.flash('error', 'Failed to empty queue.');
       }
 
       getUsersInQueue(function() {
@@ -124,7 +124,7 @@ exports = module.exports = function(req, res) {
         if (!req.xhr) {
 
           if (errors || err) {
-            req.flash('error', 'Poistaminen epäonnistui.');
+            req.flash('error', 'Failed to remove.');
           }
 
           locals.queueData = JSON.stringify(locals.queueData);
