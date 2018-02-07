@@ -5,7 +5,7 @@
   "dependencies": {
     "browserify": "^16.0.0",
     "connect-mongo": "^2.0.1",
-    "ims-lti": "^2.1.2",
+    "ims-lti": "^3.0.2",
     "kerberos": "0.0.23",
     "keystone": "^0.3.0",
     "moment": "^2.9.0",
