@@ -57,7 +57,7 @@ but you may use them to see which groups are usually busy and which are not.
   <tbody>
     {% for participant in mostFrequent %}
     <tr>
-      <td>{{ participant[0] }}th</td>
+      <td>{{ participant[0]|ordinal }}</td>
       <td>{{ participant[1] }}</td>
       <td>{{ participant[2] }}</td>
     </tr>

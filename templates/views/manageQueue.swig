@@ -8,6 +8,19 @@
 
 <script type="text/javascript">
    var queueData = {{ queueData|safe }};
+
+  function ordinal(number) {
+      if (number % 10 === 1 && number % 100 !== 11) {
+          return number + 'st'
+      } else if (number % 10 === 2 && number % 100 !== 12) {
+          return number + 'nd'
+      } else if (number % 10 === 3 && number % 100 !== 13) {
+          return number + 'rd'
+      } else {
+          return number + 'th'
+      }
+  }
+
 </script>
 
 <script src="/neuvontajono/scripts/manageQueue.js"></script>
@@ -51,7 +64,7 @@
     </thead>
     <tbody data-bind="foreach: users">
       <tr>
-        <td data-bind="text: ($index() + 1 + 'th')"></td>
+        <td data-bind="text: (ordinal($index() + 1))"></td>
         <td data-bind="text: (user.name.first() + ' ' + user.name.last())"></td>
         <td data-bind="text: enteredAt"></td>
         <td data-bind="text: (location() + ', row ' + row())"></td>
