@@ -2,7 +2,7 @@
 {% extends "../layouts/default.swig" %}
 
 {% block js %}
-<script src="/neuvontajono/scripts/knockout-3.3.0.js"></script>
+<script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
 <script src="/neuvontajono/scripts/knockout.mapping.js"></script>
 <script src="/neuvontajono/scripts/moment.min.js"></script>
 <script src="/neuvontajono/scripts/bootstrap.transitions.min.js"></script>

@@ -3,7 +3,7 @@
 
 {% block js %}
 <script src="/neuvontajono/socket.io/socket.io.js"></script>
-<script src="/neuvontajono/scripts/knockout-3.3.0.js"></script>
+<script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
 <script src="/neuvontajono/scripts/knockout.mapping.js"></script>
 
 <script type="text/javascript">
