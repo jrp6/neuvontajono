@@ -46,7 +46,8 @@
     {{ Footer.footer() }}
   </footer>
     
-  <script src="/neuvontajono/scripts/jquery-1.11.2.min.js"></script>
+  <script src="/neuvontajono/scripts/jquery-3.3.1.min.js"></script>
+  <script src="/neuvontajono/scripts/jquery-migrate-3.0.1.min.js"></script>
   <script type="text/javascript" src="/neuvontajono/scripts/script.js"></script>
   {% block js %}
   {% endblock %}

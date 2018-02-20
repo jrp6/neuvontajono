@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="{{ csrf_token_value }}" name="_csrf" />
     <title>{{ title|default("Assistance Queue") }}</title>
-    <script src="/neuvontajono/scripts/jquery-1.11.2.min.js"></script>
+    <script src="/neuvontajono/scripts/jquery-3.3.1.min.js"></script>
+    <script src="/neuvontajono/scripts/jquery-migrate-3.0.1.min.js"></script>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <script src="/neuvontajono/scripts/moment.min.js"></script>
     <link href="/neuvontajono/styles/projector.css" rel="stylesheet">
