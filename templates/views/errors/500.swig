@@ -18,7 +18,7 @@
         {% endif %}
         {% endif %}
     
-        <p>Go back <a href="/neuvontajono">to the front page</a>.</p>
+        <p>Go back <a href="/assistancequeue">to the front page</a>.</p>
         
 	</div>
 {% endblock %}

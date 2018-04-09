@@ -2,9 +2,9 @@
 {% extends "../layouts/default.swig" %}
 
 {% block js %}
-<script src="/neuvontajono/socket.io/socket.io.js"></script>
-<script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
-<script src="/neuvontajono/scripts/knockout.mapping.js"></script>
+<script src="/assistancequeue/socket.io/socket.io.js"></script>
+<script src="/assistancequeue/scripts/knockout-3.4.2.js"></script>
+<script src="/assistancequeue/scripts/knockout.mapping.js"></script>
 
 <script type="text/javascript">
    var queueData = {{ queueData|safe }};
@@ -23,7 +23,7 @@
 
 </script>
 
-<script src="/neuvontajono/scripts/manageQueue.js"></script>
+<script src="/assistancequeue/scripts/manageQueue.js"></script>
 
 {% endblock %}
 
@@ -39,7 +39,7 @@
 
 {% if course.projectorConf %}
 <p>
-  <a href="/neuvontajono/sessions/{{ session._id.toString() }}/manage/projector" target="_blank" class="btn btn-success">Open projector view</a>
+  <a href="/assistancequeue/sessions/{{ session._id.toString() }}/manage/projector" target="_blank" class="btn btn-success">Open projector view</a>
 </p>
 <p>
   When in projector view, remove next in queue by pressing space or clicking the name. You can

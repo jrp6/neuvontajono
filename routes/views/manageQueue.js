@@ -60,7 +60,7 @@ exports = module.exports = function(req, res) {
 
       } else {
           req.flash('error', 'Exercise group not found.');
-        res.redirect('/neuvontajono/selectSession');
+        res.redirect('/assistancequeue/selectSession');
       }
 
     });

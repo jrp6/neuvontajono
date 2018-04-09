@@ -2,8 +2,8 @@
 {% extends "../layouts/default.swig" %}
 
 {% block js %}
-<script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
-<script src="/neuvontajono/scripts/knockout.mapping.js"></script>
+<script src="/assistancequeue/scripts/knockout-3.4.2.js"></script>
+<script src="/assistancequeue/scripts/knockout.mapping.js"></script>
 <script>
   $(function() {
     var formData = {{ formDataJSON|safe }};
@@ -127,7 +127,7 @@
       <td>{{ session.timespan }}</td>
       <td>{{ session.location }}</td>
       <td>{{ session.assistants }}</td>
-      <td><a href="/neuvontajono/sessions/{{session.id}}/edit" class="btn btn-xs btn-primary">Modify</a> <button name="sessionId" value="{{session.id}}" class="btn btn-xs btn-danger delete-session">Remove</button></td>
+      <td><a href="/assistancequeue/sessions/{{session.id}}/edit" class="btn btn-xs btn-primary">Modify</a> <button name="sessionId" value="{{session.id}}" class="btn btn-xs btn-danger delete-session">Remove</button></td>
     </tr>
     {% endfor %}
   </table>
@@ -136,7 +136,7 @@
 <form action="#" method="post">
   <input type="hidden" name="_csrf" value="{{ csrf_token_value }}">
   <p>
-    <a href="/neuvontajono/sessions/create" class="btn btn-success">Create a new exercise group</a>
+    <a href="/assistancequeue/sessions/create" class="btn btn-success">Create a new exercise group</a>
   </p>
   <p style="margin-top: 25px;">
     All exercise groups can be temporarily deactivated e.g. for the duration of an exam week

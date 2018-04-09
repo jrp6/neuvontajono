@@ -13,12 +13,12 @@ exports = module.exports = function(req, res) {
   // Helper functions
 
   var loginOK = function() {
-    res.redirect('/neuvontajono/queue');
+    res.redirect('/assistancequeue/queue');
   };
 
   var loginFailed = function() {
     req.flash('error', 'LTI-login failed.');
-    res.redirect('/neuvontajono');
+    res.redirect('/assistancequeue');
   };
 
   // Checks the course and if it doesn't exist, create a new course
@@ -68,7 +68,7 @@ exports = module.exports = function(req, res) {
             Course.model.findOne({'courseId': course.combined}, function(err, course) {
               if (err || !course) {
                 req.flash('error', 'This course is not using advice queue.');
-                res.redirect('/neuvontajono');
+                res.redirect('/assistancequeue');
               } else {
                 req.session.courseId = course._id;
                 req.course = course;
@@ -81,7 +81,7 @@ exports = module.exports = function(req, res) {
         } else if (!err && !course) {
 
           req.flash('error', 'This course is not using advice queue.');
-          res.redirect('/neuvontajono');
+          res.redirect('/assistancequeue');
 
         } else {
 
@@ -127,7 +127,7 @@ exports = module.exports = function(req, res) {
   // Check the LTI request
 
   // This is needed because of the URL rewrite in Nginx
-  req.originalUrl = '/neuvontajono/login/lti';
+  req.originalUrl = '/assistancequeue/login/lti';
 
   provider = new lti.Provider(keystone.get('lti key'), keystone.get('lti secret'));
   provider.valid_request(req, function(err, isValid) {

@@ -2,11 +2,11 @@
 {% extends "../layouts/default.swig" %}
 
 {% block js %}
-<script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
-<script src="/neuvontajono/scripts/knockout.mapping.js"></script>
-<script src="/neuvontajono/scripts/moment.min.js"></script>
-<script src="/neuvontajono/scripts/bootstrap.transitions.min.js"></script>
-<script src="/neuvontajono/scripts/bootstrap-datetimepicker.min.js"></script>
+<script src="/assistancequeue/scripts/knockout-3.4.2.js"></script>
+<script src="/assistancequeue/scripts/knockout.mapping.js"></script>
+<script src="/assistancequeue/scripts/moment.min.js"></script>
+<script src="/assistancequeue/scripts/bootstrap.transitions.min.js"></script>
+<script src="/assistancequeue/scripts/bootstrap-datetimepicker.min.js"></script>
 
 <script>
   $(function() {
@@ -28,7 +28,7 @@
 {% endblock %}
 
 {% block css %}
-  <link href="/neuvontajono/styles/bootstrap-datetimepicker.min.css" rel="stylesheet">
+  <link href="/assistancequeue/styles/bootstrap-datetimepicker.min.css" rel="stylesheet">
 {% endblock %}
 
 {% block content %}
@@ -135,7 +135,7 @@
   <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
       <button type="submit" name="action" value="save" class="btn btn-primary">Save</button>
-      <a href="/neuvontajono/settings" class="btn btn-danger">Cancel</a>
+      <a href="/assistancequeue/settings" class="btn btn-danger">Cancel</a>
     </div>
   </div>
 </form>

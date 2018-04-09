@@ -51,7 +51,7 @@ exports.requireUser = function(req, res, next) {
   if (!req.user) {
     if (!req.xhr) {
       req.flash('error', 'You are not logged in.');
-      res.redirect('/neuvontajono');
+      res.redirect('/assistancequeue');
     } else {
       res.json({error: true});
     }
@@ -66,7 +66,7 @@ exports.requireCourse = function(req, res, next) {
   if (!req.user || !res.locals.course) {
     if (!req.xhr) {
       req.flash('error', 'You are not logged in to a course.');
-      res.redirect('/neuvontajono');
+      res.redirect('/assistancequeue');
     } else {
       res.json({error: true});
     }
@@ -81,7 +81,7 @@ exports.requireStaff = function(req, res, next) {
   if (!req.user || !res.locals.course || !res.locals.staff) {
     if (!req.xhr) {
       req.flash('error', 'You are not staff.');
-      res.redirect('/neuvontajono');
+      res.redirect('/assistancequeue');
     } else {
       res.json({error: true});
     }
@@ -96,7 +96,7 @@ exports.requireTeacher = function(req, res, next) {
   if (!req.user || !res.locals.course || !res.locals.teacher) {
     if (!req.xhr) {
       req.flash('error', 'You are not the teacher.');
-      res.redirect('/neuvontajono');
+      res.redirect('/assistancequeue');
     } else {
       res.json({error: true});
     }

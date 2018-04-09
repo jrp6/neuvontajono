@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
   var locals = res.locals;
 
   if (locals.course) {
-    res.redirect('/neuvontajono/queue');
+    res.redirect('/assistancequeue/queue');
     return;
   }
 

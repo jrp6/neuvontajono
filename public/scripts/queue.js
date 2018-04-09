@@ -40,7 +40,7 @@ $(function() {
 
   // **********************************************************************************************
 
-  var socket = io.connect('/queue', { path: '/neuvontajono/socket.io', forceNew: true });
+  var socket = io.connect('/queue', { path: '/assistancequeue/socket.io', forceNew: true });
 
   socket.on('connect', function() {
     socket.emit('userQueue', { 'courseId': $('input[name="courseId"]').val() });

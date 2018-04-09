@@ -34,7 +34,7 @@ For more details see <a href="{{course.url}}">here</a>.
 </table>
 
 {% if teacher %}
-<p>Exercise groups can be modified in the <a href="/neuvontajono/settings">course settings</a>.</p>
+<p>Exercise groups can be modified in the <a href="/assistancequeue/settings">course settings</a>.</p>
 {% endif %}
 
 {% endblock %}

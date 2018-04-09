@@ -6,25 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="{{ csrf_token_value }}" name="_csrf" />
     <title>{{ title|default("Assistance Queue") }}</title>
-    <script src="/neuvontajono/scripts/jquery-3.3.1.min.js"></script>
-    <script src="/neuvontajono/scripts/jquery-migrate-3.0.1.min.js"></script>
+    <script src="/assistancequeue/scripts/jquery-3.3.1.min.js"></script>
+    <script src="/assistancequeue/scripts/jquery-migrate-3.0.1.min.js"></script>
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-    <script src="/neuvontajono/scripts/moment.min.js"></script>
-    <link href="/neuvontajono/styles/projector.css" rel="stylesheet">
+    <script src="/assistancequeue/scripts/moment.min.js"></script>
+    <link href="/assistancequeue/styles/projector.css" rel="stylesheet">
 
     <!--[if lt IE 9]>
     			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     		<![endif]-->
 
-    <script src="/neuvontajono/socket.io/socket.io.js"></script>
-    <script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
-    <script src="/neuvontajono/scripts/knockout.mapping.js"></script>
+    <script src="/assistancequeue/socket.io/socket.io.js"></script>
+    <script src="/assistancequeue/scripts/knockout-3.4.2.js"></script>
+    <script src="/assistancequeue/scripts/knockout.mapping.js"></script>
 
     <script type="text/javascript">
        var queueData = {{ queueData|safe }};
     </script>
-    <script src="/neuvontajono/scripts/manageQueueProjector.js"></script>
+    <script src="/assistancequeue/scripts/manageQueueProjector.js"></script>
 
   </head>
 

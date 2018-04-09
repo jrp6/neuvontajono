@@ -9,9 +9,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="{{ csrf_token_value }}" name="_csrf" />
 <title>{{ title|default("Assistance Queue") }}</title>
-<link href="/neuvontajono/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="/assistancequeue/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
-<link href="/neuvontajono/styles/style.css" rel="stylesheet">
+<link href="/assistancequeue/styles/style.css" rel="stylesheet">
 
 <!--[if lt IE 9]>
 			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -46,9 +46,9 @@
     {{ Footer.footer() }}
   </footer>
     
-  <script src="/neuvontajono/scripts/jquery-3.3.1.min.js"></script>
-  <script src="/neuvontajono/scripts/jquery-migrate-3.0.1.min.js"></script>
-  <script type="text/javascript" src="/neuvontajono/scripts/script.js"></script>
+  <script src="/assistancequeue/scripts/jquery-3.3.1.min.js"></script>
+  <script src="/assistancequeue/scripts/jquery-migrate-3.0.1.min.js"></script>
+  <script type="text/javascript" src="/assistancequeue/scripts/script.js"></script>
   {% block js %}
   {% endblock %}
 </body>

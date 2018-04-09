@@ -1,5 +1,5 @@
 {% extends "../layouts/default.swig" %} {% block js %}
-<script src="/neuvontajono/socket.io/socket.io.js"></script>
+<script src="/assistancequeue/socket.io/socket.io.js"></script>
 <script>
 
 </script>

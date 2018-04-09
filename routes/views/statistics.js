@@ -14,7 +14,7 @@ exports = module.exports = function(req, res) {
 
     if ((locals.course.statisticsLevel == 2 && !locals.teacher) || (locals.course.statisticsLevel == 1 && !locals.staff)) {
       req.flash('error', 'You are not permitted to view statistics.');
-      res.redirect('/neuvontajono/queue');
+      res.redirect('/assistancequeue/queue');
     } else {
       next();
     }

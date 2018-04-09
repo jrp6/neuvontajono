@@ -6,7 +6,7 @@
   var yellowLimit = {{ course.yellowLimit }};
   var redLimit = {{ course.redLimit }};
 </script>
-<script src="/neuvontajono/scripts/statistics.js"></script>
+<script src="/assistancequeue/scripts/statistics.js"></script>
 {% endblock %}
 
 {% block content %}

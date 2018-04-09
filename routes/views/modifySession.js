@@ -32,7 +32,7 @@ exports = module.exports = function(req, res) {
 
         } else {
           req.flash('error', 'Unknown exercise group.');
-          res.redirect('/neuvontajono/settings');
+          res.redirect('/assistancequeue/settings');
         }
       });
     }
@@ -68,7 +68,7 @@ exports = module.exports = function(req, res) {
       session.save(function(err) {
         if (!err) {
           req.flash('success', 'Excercise group saved.');
-          res.redirect('/neuvontajono/settings');
+          res.redirect('/assistancequeue/settings');
 
         } else {
           req.flash('error', 'Failed to save exercise group.');

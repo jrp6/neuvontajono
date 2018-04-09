@@ -27,7 +27,7 @@
       <td>{{ session.timespan }}</td>
       <td>{{ session.location }}</td>
       <td>{{ session.assistants }}</td>
-      <td><a href="/neuvontajono/sessions/{{session.id}}/manage" class="btn btn-primary">Select</a></td>
+      <td><a href="/assistancequeue/sessions/{{session.id}}/manage" class="btn btn-primary">Select</a></td>
     </tr>
     {% endfor %}
   </table>

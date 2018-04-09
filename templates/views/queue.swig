@@ -2,15 +2,15 @@
 {% extends "../layouts/default.swig" %}
 
 {% block js %}
-<script src="/neuvontajono/socket.io/socket.io.js"></script>
-<script src="/neuvontajono/scripts/knockout-3.4.2.js"></script>
-<script src="/neuvontajono/scripts/knockout.mapping.js"></script>
+<script src="/assistancequeue/socket.io/socket.io.js"></script>
+<script src="/assistancequeue/scripts/knockout-3.4.2.js"></script>
+<script src="/assistancequeue/scripts/knockout.mapping.js"></script>
 
 <script type="text/javascript">
    var queueData = {{ queueData|safe }}; 
 </script>
 
-<script src="/neuvontajono/scripts/queue.js"></script>
+<script src="/assistancequeue/scripts/queue.js"></script>
 {% endblock %}
 
 {% block content %}
